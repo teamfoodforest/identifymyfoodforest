@@ -1,3 +1,4 @@
+const database = firebase.database();
 document.getElementById("startButton").addEventListener("click", () => {
   document.getElementById("intro").classList.add("hidden");
   document.getElementById("mapContainer").classList.remove("hidden");
@@ -72,6 +73,26 @@ document.getElementById("categorySelect").addEventListener("change", (e) => {
 // Globale Formular-Verarbeitung
 document.addEventListener("submit", function (e) {
   e.preventDefault();
-  alert("Fund gespeichert! (wird später dauerhaft gespeichert)");
-  document.getElementById("formContainer").classList.add("hidden");
+
+  const form = e.target;
+  const formData = new FormData(form);
+  const data = {};
+
+  formData.forEach((value, key) => {
+    data[key] = value;
+  });
+
+  // Zeitstempel hinzufügen
+  data.timestamp = new Date().toISOString();
+
+  // In Firebase schreiben
+  database.ref("funde").push(data)
+    .then(() => {
+      alert("Fund wurde gespeichert!");
+      form.reset();
+      document.getElementById("formContainer").classList.add("hidden");
+    })
+    .catch((error) => {
+      alert("Fehler beim Speichern: " + error.message);
+    });
 });
