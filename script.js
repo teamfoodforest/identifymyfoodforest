@@ -96,3 +96,16 @@ document.addEventListener("submit", function (e) {
       alert("Fehler beim Speichern: " + error.message);
     });
 });
+// 🌿 Leaflet-Karte mit eigener Hintergrundgrafik (2480 x 3508 Pixel)
+const map = L.map('mapOverlay', {
+  crs: L.CRS.Simple,
+  minZoom: -2,
+  maxZoom: 2,
+  zoomSnap: 0.5
+});
+
+const imageBounds = [[0, 0], [3508, 2480]]; // Höhe x Breite
+
+const image = L.imageOverlay('waldgartenkarte.png', imageBounds).addTo(map);
+map.fitBounds(imageBounds);
+map.setMaxBounds(imageBounds);
