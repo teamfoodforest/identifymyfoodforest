@@ -32,6 +32,24 @@
 
   <div id="categoryFormArea"></div>
 </div>
-  <script src="script.js"></script>
+ <!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js"></script>
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyBQMPFbAOsD-umQGCf4R5fPs0T1F4mKS_0",
+    authDomain: "waldgarten-funde.firebaseapp.com",
+    databaseURL: "https://waldgarten-funde-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "waldgarten-funde",
+    storageBucket: "waldgarten-funde.firebasestorage.app",
+    messagingSenderId: "83975110946",
+    appId: "1:83975110946:web:daa196885633334660257b"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+<!-- Dein eigenes Skript -->
+<script src="script.js"></script>
 </body>
 </html>
