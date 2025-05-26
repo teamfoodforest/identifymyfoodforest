@@ -11,12 +11,7 @@ body {
   text-align: center;
 }
 
-#mapContainer {
-  position: relative;
-  width: 100%;
-  max-width: 700px;
-  margin: auto;
-}
+#
 
 #mapImage {
   width: 100%;
