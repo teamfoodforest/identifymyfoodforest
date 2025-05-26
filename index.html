@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Identify My Food Forest</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="intro">
+    <h1>Willkommen im Leuphana Waldgarten</h1>
+    <p>Klicke auf die Karte, um einen Fundpunkt zu setzen.</p>
+    <button id="startButton">Los geht's</button>
+  </div>
+
+  <div id="mapContainer" class="hidden">
+    <img id="mapImage" src="img/waldgarten.jpg" alt="Waldgartenkarte" />
+    <div id="mapOverlay"></div>
+  </div>
+
+  <div id="formContainer" class="hidden">
+    <h2>Fund eintragen: Pflanze</h2>
+    <form id="plantForm">
+      <label>Lateinischer Name:<br><input type="text" name="latinName" required></label><br>
+      <label>Pflanzenfamilie:<br><input type="text" name="family"></label><br>
+      <label>Datum:<br><input type="date" name="date" required></label><br>
+      <label>Name des Finders / der Finderin:<br><input type="text" name="finder"></label><br>
+      <label>Bemerkung:<br><textarea name="notes"></textarea></label><br>
+      <button type="submit">Eintrag speichern</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

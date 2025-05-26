@@ -1,0 +1,41 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f4f4;
+}
+
+#intro {
+  padding: 2em;
+  background: #fff;
+  text-align: center;
+}
+
+#mapContainer {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  margin: auto;
+}
+
+#mapImage {
+  width: 100%;
+  display: block;
+}
+
+#mapOverlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  cursor: crosshair;
+}
+
+#formContainer {
+  padding: 1em;
+  max-width: 700px;
+  margin: auto;
+  background: #fff;
+}
+
+.hidden {
+  display: none;
+}
