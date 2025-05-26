@@ -14,8 +14,7 @@ body {
 #
 
 #mapImage {
-  width: 100%;
-  display: block;
+  display: none; /* Bild wird ausgeblendet */
 }
 
 #mapOverlay {

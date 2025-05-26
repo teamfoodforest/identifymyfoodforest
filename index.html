@@ -19,17 +19,19 @@
   </div>
 
   <div id="formContainer" class="hidden">
-    <h2>Fund eintragen: Pflanze</h2>
-    <form id="plantForm">
-      <label>Lateinischer Name:<br><input type="text" name="latinName" required></label><br>
-      <label>Pflanzenfamilie:<br><input type="text" name="family"></label><br>
-      <label>Datum:<br><input type="date" name="date" required></label><br>
-      <label>Name des Finders / der Finderin:<br><input type="text" name="finder"></label><br>
-      <label>Bemerkung:<br><textarea name="notes"></textarea></label><br>
-      <button type="submit">Eintrag speichern</button>
-    </form>
-  </div>
+  <h2>Fund eintragen</h2>
 
+  <label for="categorySelect">Was wurde gefunden?</label><br>
+  <select id="categorySelect">
+    <option value="">Bitte auswählen</option>
+    <option value="plant">Pflanze</option>
+    <option value="insect">Insekt</option>
+    <option value="soil">Bodenprobe</option>
+    <option value="other">Sonstiges</option>
+  </select>
+
+  <div id="categoryFormArea"></div>
+</div>
   <script src="script.js"></script>
 </body>
 </html>
