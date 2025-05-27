@@ -1,33 +1,80 @@
-body {
-  font-family: sans-serif;
+* {
+  box-sizing: border-box;
+}
+
+body, html {
   margin: 0;
   padding: 0;
-  background: #f4f4f4;
+  font-family: sans-serif;
+  height: 100%;
 }
 
 #intro {
-  padding: 2em;
-  background: #fff;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
+.intro-bg {
+  background-image: url('welcome-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro-overlay {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 2rem;
+  color: white;
   text-align: center;
+  border-radius: 1rem;
+  max-width: 600px;
+}
+
+.intro-overlay h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.intro-overlay p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.intro-overlay button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  background-color: #4caf50;
+  color: white;
+  border-radius: 0.5rem;
+  cursor: pointer;
 }
 
 #mapContainer {
   height: 100vh;
   width: 100vw;
-  position: relative;
+  overflow: hidden;
 }
 
 #mapOverlay {
   height: 100%;
   width: 100%;
   cursor: crosshair;
+  z-index: 1;
 }
 
-#formContainer {
-  padding: 1em;
-  max-width: 700px;
-  margin: auto;
-  background: #fff;
+#popupForm {
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .hidden {
