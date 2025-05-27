@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Identify My Food Forest</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
 <body>
   <div id="intro">
@@ -14,40 +15,39 @@
   </div>
 
   <div id="mapContainer" class="hidden">
-  <div id="mapOverlay"></div>
-</div>
+    <div id="mapOverlay"></div>
+  </div>
+
   <div id="formContainer" class="hidden">
-  <h2>Fund eintragen</h2>
+    <h2>Fund eintragen</h2>
+    <label for="categorySelect">Was wurde gefunden?</label><br>
+    <select id="categorySelect">
+      <option value="">Bitte auswählen</option>
+      <option value="plant">Pflanze</option>
+      <option value="insect">Insekt</option>
+      <option value="soil">Bodenprobe</option>
+      <option value="other">Sonstiges</option>
+    </select>
+    <div id="categoryFormArea"></div>
+  </div>
 
-  <label for="categorySelect">Was wurde gefunden?</label><br>
-  <select id="categorySelect">
-    <option value="">Bitte auswählen</option>
-    <option value="plant">Pflanze</option>
-    <option value="insect">Insekt</option>
-    <option value="soil">Bodenprobe</option>
-    <option value="other">Sonstiges</option>
-  </select>
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyBQMPFbAOsD-umQGCf4R5fPs0T1F4mKS_0",
+      authDomain: "waldgarten-funde.firebaseapp.com",
+      databaseURL: "https://waldgarten-funde-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "waldgarten-funde",
+      storageBucket: "waldgarten-funde.firebasestorage.app",
+      messagingSenderId: "83975110946",
+      appId: "1:83975110946:web:daa196885633334660257b"
+    };
+    firebase.initializeApp(firebaseConfig);
+  </script>
 
-  <div id="categoryFormArea"></div>
-</div>
- <!-- Firebase SDKs -->
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
-<script>
-  const firebaseConfig = {
-    apiKey: "AIzaSyBQMPFbAOsD-umQGCf4R5fPs0T1F4mKS_0",
-    authDomain: "waldgarten-funde.firebaseapp.com",
-    databaseURL: "https://waldgarten-funde-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "waldgarten-funde",
-    storageBucket: "waldgarten-funde.firebasestorage.app",
-    messagingSenderId: "83975110946",
-    appId: "1:83975110946:web:daa196885633334660257b"
-  };
-
-  firebase.initializeApp(firebaseConfig);
-</script>
-
-<!-- Dein eigenes Skript -->
-<script src="script.js"></script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

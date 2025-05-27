@@ -1,29 +1,21 @@
 const database = firebase.database();
+
+// Startbutton -> Intro ausblenden, Karte zeigen
 document.getElementById("startButton").addEventListener("click", () => {
   document.getElementById("intro").classList.add("hidden");
   document.getElementById("mapContainer").classList.remove("hidden");
 });
 
+// Formular anzeigen bei Klick auf die Karte
 document.getElementById("mapOverlay").addEventListener("click", () => {
   document.getElementById("formContainer").classList.remove("hidden");
 });
 
-// Intro-Ausblenden beim Start
-document.getElementById("startButton").addEventListener("click", () => {
-  document.getElementById("intro").classList.add("hidden");
-  document.getElementById("mapContainer").classList.remove("hidden");
-});
-
-// Formular anzeigen bei Klick auf Karte
-document.getElementById("mapOverlay").addEventListener("click", () => {
-  document.getElementById("formContainer").classList.remove("hidden");
-});
-
-// Kategorie-Auswahl und Formularanzeige
+// Kategorie-Auswahl → passendes Formular anzeigen
 document.getElementById("categorySelect").addEventListener("change", (e) => {
   const selected = e.target.value;
   const area = document.getElementById("categoryFormArea");
-  area.innerHTML = ""; // vorherige Inhalte löschen
+  area.innerHTML = "";
 
   if (selected === "plant") {
     area.innerHTML = `
@@ -70,22 +62,17 @@ document.getElementById("categorySelect").addEventListener("change", (e) => {
   }
 });
 
-// Globale Formular-Verarbeitung
+// Formular speichern
 document.addEventListener("submit", function (e) {
   e.preventDefault();
-
   const form = e.target;
   const formData = new FormData(form);
   const data = {};
-
   formData.forEach((value, key) => {
     data[key] = value;
   });
-
-  // Zeitstempel hinzufügen
   data.timestamp = new Date().toISOString();
 
-  // In Firebase schreiben
   database.ref("funde").push(data)
     .then(() => {
       alert("Fund wurde gespeichert!");
@@ -96,7 +83,8 @@ document.addEventListener("submit", function (e) {
       alert("Fehler beim Speichern: " + error.message);
     });
 });
-// 🌿 Leaflet-Karte mit eigener Hintergrundgrafik (2480 x 3508 Pixel)
+
+// 🌿 Leaflet-Karte mit deiner PNG
 const map = L.map('mapOverlay', {
   crs: L.CRS.Simple,
   minZoom: -2,
@@ -104,8 +92,7 @@ const map = L.map('mapOverlay', {
   zoomSnap: 0.5
 });
 
-const imageBounds = [[0, 0], [3508, 2480]]; // Höhe x Breite
-
-const image = L.imageOverlay('waldgartenkarte.png', imageBounds).addTo(map);
+const imageBounds = [[0, 0], [3508, 2480]]; // Höhe x Breite des Bildes
+L.imageOverlay('waldgartenkarte.png', imageBounds).addTo(map);
 map.fitBounds(imageBounds);
 map.setMaxBounds(imageBounds);
